@@ -1,6 +1,8 @@
 import '../styles/index.less';
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+console.log(ReactDOM);
 
 function App() {
   const a: number = 1;
@@ -12,4 +14,3 @@ function App() {
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
-

@@ -1,7 +1,16 @@
 {
   "compilerOptions": {
+    "module": "esnext",
+    "target": "ES5",
     "sourceMap": true,
-    "jsx": "preserve",
-    "target": "ES5"
-  }
+    "jsx": "react",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": false
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "common"
+  ]
 }
