@@ -14,6 +14,7 @@ catchError();
 create();
 
 function catchError() {
+  // eslint-disable-next-line eqeqeq
   if (name == null) {
     console.log('缺少项目名称：npm run create <new-project>');
     process.exit();

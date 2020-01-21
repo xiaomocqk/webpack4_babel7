@@ -23,7 +23,7 @@ function resolve(...dir) {
 
 module.exports = {
   mode: isProd ? 'production' : 'development',
-  devtool: isProd ? 'hidden-source-map' : 'cheap-module-eval-source-map',
+  devtool: isProd ? 'hidden-source-map' : 'source-map',
   entry: entry,
   output: {
     path: outputPath,
