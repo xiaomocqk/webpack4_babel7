@@ -4,21 +4,25 @@ const { exec } = require('child_process');
 const chalk = require('chalk');
 const ora = require('ora');
 
-let mode = process.argv[2];// 'development' | 'production'
+let NODE_ENV = process.argv[2];// 'development' | 'production'
 let project = process.argv[3];
+
+
+process.env.NODE_ENV = NODE_ENV;
+process.env.project = project;
 
 catchError(project);
 build(project);
 
-function build(project){
+function build(){
   let spinner = ora(chalk.cyan('Now building...\n'));
   let commands = {
-    production: `cross-env NODE_ENV=production project=${project} webpack --progress --hide-modules`,
-    development: `cross-env NODE_ENV=development project=${project} webpack-dev-server --color`
+    production: `webpack --progress --hide-modules`,
+    development: `webpack-dev-server --color`
   };
   
   spinner.start();
-  let p = exec(commands[mode]);
+  let p = exec(commands[NODE_ENV]);
   
   // 打印子进程的 console
   p.stdout.on('data', receiveMessage);
@@ -39,8 +43,9 @@ function build(project){
 
 function catchError(project){
   let logWarn = msg => console.log(chalk.yellow(msg));
+  // eslint-disable-next-line eqeqeq
   if (project == null) {
-    logWarn(`未指定项目名称: \`npm run ${mode === 'production' ? 'build' : 'dev'} <project>\``);
+    logWarn(`未指定项目名称: \`npm run ${NODE_ENV === 'production' ? 'build' : 'dev'} <project>\``);
     process.exit();
   }
 

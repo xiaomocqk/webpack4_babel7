@@ -42,9 +42,7 @@ async function ready() {
   let { answer } = await inquirer.prompt(questions);
   let answerUpperCase = answer.trim().toUpperCase();
 
-  (answerUpperCase === 'Y' || answerUpperCase === 'YES')
-    ? start()
-    : process.exit();
+  (answerUpperCase === 'Y' || answerUpperCase === 'YES') && start();
 }
 
 function start() {

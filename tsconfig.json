@@ -10,7 +10,10 @@
   },
   "exclude": [
     "node_modules",
-    "dist",
-    "common"
+    "./dist/",
+    "./common/",
+    "./scripts/",
+    "./webpack.config.js",
+    "./postcss.config.js"
   ]
 }
