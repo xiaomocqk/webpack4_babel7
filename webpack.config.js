@@ -14,7 +14,7 @@ const project = process.env.project;
 const projectPath = resolve('src', project);
 const outputPath = resolve('dist', project);
 const publicPath = isProd ? `/${project}/` : `/${project}/`;
-const favicon = /* resolve(projectPath, 'images/favicon.jpg') */ undefined;
+// const favicon = /* resolve(projectPath, 'images/favicon.jpg') */ undefined;
 const { entry, htmlPlugins } = resolveEntries();
 
 function resolve(...dir) {
@@ -236,7 +236,7 @@ function resolveEntries() {
       new HtmlWebpackPlugin({
         template: resolve(htmlDir, htmlname),
         filename: htmlname,
-        favicon: favicon,
+        // favicon: favicon,
         chunks: ['vendor', filename],
       })
     );
